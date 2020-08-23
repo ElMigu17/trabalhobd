@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Tabela
+    </title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="ojs.js"></script>
+  </head>
+  <body>
+    <div id="centraliza">
+      <h1>TABELA</h1>
+
+      <table id="tabela">
+        <tr>
+          <th id="thentrada">T. de entrada</th>
+          <th class="thdata">D. Internação</th>
+          <th class="thdata">D. Saida</th>
+          <th id="thdescricao">Descricao</th>
+          <th>Diagnostico</th>
+          <th id="thcpf">CPF do Paciente</th>
+          <th>Editar</th>
+        </tr>
+        <tr>
+          <td>bla</td>
+          <td>22/10/2018</td>
+          <td>22/10/2018</td>
+          <td>bla</td>
+          <td>bla</td>
+          <td>12345678901</td>
+          <td>
+            <div class="ultima-coluna">
+              <button class="botoes" onclick="deleta()">
+                <img src="SVG/trash.svg" />
+              </button>
+
+              <a href="edita.html" class="botoes"
+                ><img src="SVG/pencil-alt.svg"
+              /></a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>bla</td>
+          <td>22/10/2018</td>
+          <td>22/10/2018</td>
+          <td>bla</td>
+          <td>bla</td>
+          <td>12345678901</td>
+          <td>
+            <div class="ultima-coluna">
+              <button class="botoes" onclick="deleta()">
+                <img src="SVG/trash.svg" />
+              </button>
+
+              <a href="edita.html" class="botoes"
+                ><img src="SVG/pencil-alt.svg"
+              /></a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>bla</td>
+          <td>22/10/2018</td>
+          <td>22/10/2018</td>
+          <td>bla</td>
+          <td>bla</td>
+          <td>12345678901</td>
+          <td>
+            <div class="ultima-coluna">
+              <button class="botoes" onclick="deleta()">
+                <img src="SVG/trash.svg" />
+              </button>
+
+              <a href="edita.html" class="botoes"
+                ><img src="SVG/pencil-alt.svg"
+              /></a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>bla</td>
+          <td>22/10/2018</td>
+          <td>22/10/2018</td>
+          <td>bla</td>
+          <td>
+            Mussum Ipsum, cacilds vidis litro abertis. Leite de capivaris, leite
+            de mula manquis sem cabeça. Viva Forevis aptent taciti sociosqu ad
+            litora torquent. Atirei o pau no gatis, per gatis num morreus.
+            Sapien in monti palavris qui num significa nadis i pareci latim.
+          </td>
+          <td>12345678901</td>
+          <td>
+            <div class="ultima-coluna">
+              <button class="botoes" onclick="deleta()">
+                <img src="SVG/trash.svg" />
+              </button>
+
+              <a href="edita.html" class="botoes"
+                ><img src="SVG/pencil-alt.svg"
+              /></a>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <a href="adiciona.html" class="botaoElipsado" id="add"
+        >Adicionar Atendimento <span id="omais">+</span></a
+      >
+      <div id="popUpBack">
+        <div id="popUp">
+          <button onclick="fechar()" id="xis">
+            <img src="SVG/X_ICON.webp" />
+          </button>
+          <h3>DELETAR</h3>
+          <form id="formulario" action="/action_page.php">
+            <label for="fname">Tem certeza que quer deletar?</label><br />
+            <br />
+            <input type="submit" class="botaoElipsado" value="Sim" />
+          </form>
+          <button onclick="fechar()" class="botaoElipsado" id="cancelar">
+            Cancelar
+          </button>
+        </div>
+      </div>
+      <footer id="rodape">
+        <p>
+          Made by Adriano, Eric, Ghabriell and Miguel
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

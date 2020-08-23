@@ -1,0 +1,205 @@
+/* Todos */
+body {
+  margin: 0;
+  max-width: 100vw;
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+}
+#centraliza {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+#rodape {
+  display: flex;
+  justify-content: center;
+  background-color: #999;
+  width: 100%;
+  border-top: 10px solid #bbb;
+  position: absolute;
+  bottom: 0%;
+}
+
+/*front.html inicio*/
+
+#tabela {
+  padding: 0;
+  border-collapse: collapse;
+  margin-bottom: 3vh;
+  max-width: 100%;
+  border: 1px solid #bbb;
+  background-color: #f3f3f3;
+}
+
+/* celulas da cabeca */
+#tabela th {
+  margin: 0;
+  padding: 5px;
+  width: 200px;
+  height: auto;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+#tabela th:last-child {
+  border-right: 0;
+  border-left: 2px solid black;
+  width: 100px;
+}
+#tabela th:first-child {
+  border-right: 2px solid black;
+  border-left: 0;
+}
+
+/* celulas do corpo */
+#tabela td {
+  margin: 0;
+  padding: 3px 5px 3px 5px;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 1px solid #bbb;
+  font-size: 14px;
+}
+#tabela td:last-child {
+  border-right: 0;
+  border-left: 0;
+}
+#tabela td:first-child {
+  border-right: 2px solid black;
+  border-left: 0;
+}
+
+/* linhas */
+#tabela tr:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+#thentrada {
+  width: 140px !important;
+}
+.thdata {
+  width: 130px !important;
+}
+#thcpf {
+  width: 170px !important;
+}
+#thdescricao {
+  width: 240px !important;
+}
+
+/* botoes de detelar e editar*/
+.botoes {
+  border: 0;
+  background-color: #bbb;
+  border-radius: 5px;
+  padding: 7px 7px 3px 7px;
+
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*celula dos botoes de edicao*/
+.ultima-coluna {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+#add {
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+}
+
+#omais {
+  margin-left: 3px;
+  font-weight: 300;
+  font-size: 1.5em;
+  position: relative;
+  top: -0.25em;
+  height: 0px;
+}
+
+/*trash*/
+#popUpBack {
+  position: absolute;
+  top: 0%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+#popUp {
+  position: relative;
+  width: 500px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #888;
+  border-radius: 5px;
+}
+#popUp h3 {
+  margin-top: 0;
+}
+#xis {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  width: 25px;
+}
+#xis img {
+  width: 100%;
+}
+#cancelar {
+  margin-top: 4px;
+}
+/*front.html fim*/
+
+/* {adicao, edicao}.html*/
+
+.inputs {
+  border-radius: 0px;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 2px solid #888;
+  height: 30px;
+  padding-left: 3px;
+  padding-bottom: 1px;
+  height: 1.1em;
+}
+#entrada {
+  width: 20px;
+}
+#erros {
+  color: red;
+  padding-top: 3px;
+  padding-left: 3px;
+  font-size: 10px;
+  text-align: left;
+}
+#info {
+  margin-right: 3px;
+  width: 18px;
+}
+.botaoElipsado {
+  color: #f3f3f3;
+  background-color: #020202;
+  border: 0;
+  border-radius: 30px;
+  padding: 5px 20px;
+  cursor: pointer;
+}
