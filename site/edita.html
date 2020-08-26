@@ -14,7 +14,7 @@
         name="formulario"
         id="formulario"
         action="front.html"
-        onsubmit="return valida()"
+        onsubmit="return validaPrimeiro()"
       >
         <label for="entrada">Tipo de entrada:</label>
         <input
@@ -22,19 +22,22 @@
           id="entrada"
           class="inputs"
           name="entrada"
+          placeholder="XX"
+          maxlength="2"
+          required
         /><br /><br />
         <label for="dataInternacao">Data de internação:</label>
         <input
           type="date"
           id="dataInternacao"
-          class="inputs"
+          class="inputs dataList"
           name="dataInternacao"
         /><br /><br />
         <label for="dataSaida">Data de saida:</label>
         <input
           type="date"
           id="dataSaida"
-          class="inputs"
+          class="inputs dataList"
           name="dataSaida"
         /><br /><br />
         <label for="descricao">Descrição:</label>
@@ -57,6 +60,10 @@
           id="paciente"
           class="inputs"
           name="paciente"
+          onkeyup="maskCpf()"
+          placeholder="111.111.111-11"
+          maxlength="14"
+          required
         /><br /><br />
         <input type="submit" id="enviar" class="botaoElipsado" value="Enviar" />
         <div id="erros"></div>

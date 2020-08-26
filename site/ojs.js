@@ -1,58 +1,60 @@
-/*function ouvido() {
-  document.getElementById("paciente").addEventListener("keyup", maskCpf, false);
-  console.log("ouvido");
+function ouvido() {
+  try {
+    document.getElementById("paciente").addEventListener("input", maskCpf);
+  } catch {
+    console.log("Não há formulario aqui");
+  }
+
+  //  console.log("ouvido");
 }
 document.addEventListener("DOMContentLoaded", ouvido, false);
-console.log("ojs is on");
+
 function maskCpf() {
-  console.log("ouviu");
+  //  console.log("ouviu");
   let elCpf = document.getElementById("paciente");
+
   var valCpf = elCpf.value;
-  let tamCpf = valCpf.length;
-  var arreio = "123";
-  arreio[0] = "9";
-  console.log("valCpf[0]: " + arreio[0]);
-  if (tamCpf > 3) {
-    console.log("entrou no primeiro if");
-    let auxValCpf = new Array();
-    auxValCpf.length = tamCpf + 1;
+  var saiCpf = valCpf;
+  saiCpf = saiCpf.replace(/\D/g, ""); //Remove tudo o que não é dígito
+  saiCpf = saiCpf.replace(/(\d{3})(\d)/, "$1.$2"); //Coloca um ponto entre o terceiro e o quarto dígitos
+  saiCpf = saiCpf.replace(/(\d{3})(\d)/, "$1.$2"); //Coloca um ponto entre o terceiro e o quarto dígitos
+  //de novo (para o segundo bloco de números)
+  saiCpf = saiCpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2"); //Coloca um hífen entre o terceiro e o quarto dígitos
 
-    for (let i = tamCpf - 2; i > 2; i--) {
-      auxValCpf[i + 1] = valCpf[i];
-      console.log("f: " + auxValCpf[i + 1]);
-    }
-    auxValCpf[3] = ".";
-    console.log("auxValCpf: " + auxValCpf);
+  //  console.log("saiCpf: " + saiCpf + " | valCpf " + valCpf);
 
-    /*   if (tamCpf > 6) {
-      for (let i = tamCpf; i > 6; i--) {
-        valCpf[i + 1] = valCpf[i];
-      }
-      valCpf[7] = ".";
-      if (tamCpf > 9) {
-        for (let i = tamCpf - 1; i > 11; i--) {
-          valCpf[i + 1] = valCpf[i];
-        }
-        valCpf[11] = "-";
-      }
-    }*/
-  }
-  console.log(valCpf);
-  elCpf.value = valCpf;
-} */
-
-function deleta() {
-  document.getElementById("popUpBack").style.display = "flex";
+  elCpf.value = saiCpf;
 }
-function fechar() {
-  document.getElementById("popUpBack").style.display = "none";
+
+function validaPrimeiro() {
+  document.forms["formulario"]["entrada"].addEventListener("blur", valida);
+  document.forms["formulario"]["dataInternacao"].addEventListener(
+    "blur",
+    valida
+  );
+  document.forms["formulario"]["descricao"].addEventListener("blur", valida);
+  document.forms["formulario"]["diagnostico"].addEventListener("blur", valida);
+  document.forms["formulario"]["paciente"].addEventListener("blur", valida);
+
+  return valida();
 }
+
 function valida() {
   let erros = "<img id='info' src='SVG/alert-exclamation.svg' /> <br/>";
+
+  document.getElementById("erros").innerHTML = "";
   let houveErro = false;
   let qtdErros = 0;
+
+  let entrada = document.forms["formulario"]["entrada"].value;
+  let dataInter = document.forms["formulario"]["dataInternacao"].value;
+  let descricao = document.forms["formulario"]["descricao"].value;
+  let diagnostico = document.forms["formulario"]["diagnostico"].value;
+  let cpf = document.forms["formulario"]["paciente"].value;
+  cpf = cpf.replace(/[.|-]/g, "");
+
   // tipo de entrada
-  if (document.forms["formulario"]["entrada"].value.length > 2) {
+  if (entrada.length > 2) {
     houveErro = true;
     qtdErros++;
     erros =
@@ -60,41 +62,40 @@ function valida() {
       qtdErros +
       "- Tipo de entrada deve ter no MAXIMO 2 caracteres <br/>";
   }
-  if (document.forms["formulario"]["entrada"].value.length == 0) {
+  if (entrada.length == 0) {
     houveErro = true;
     qtdErros++;
     erros = erros + qtdErros + "- Tipo de entrada não pode ser nulo <br/>";
   }
 
-  //data internacao
-  console.log(document.forms["formulario"]["dataInternacao"].value);
+  //data internacao - não precisam
 
   // descricao
-  if (document.forms["formulario"]["descricao"].value.length > 500) {
+  if (descricao.length > 500) {
     houveErro = true;
     qtdErros++;
     erros =
       erros + qtdErros + "- Descricao deve ter no MAXIMO 500 caracteres <br/>";
   }
   // diagnostico
-  if (document.forms["formulario"]["diagnostico"].value.length > 45) {
+  if (diagnostico.length > 45) {
     houveErro = true;
     qtdErros++;
     erros =
       erros + qtdErros + "- Diagnostico deve ter no MAXIMO 45 caracteres <br/>";
   }
-  if (document.forms["formulario"]["diagnostico"].value.length == 0) {
+  if (diagnostico.length == 0) {
     houveErro = true;
     qtdErros++;
     erros = erros + qtdErros + "- Diagnostico não pode ser nulo <br/>";
   }
   // cpf paciente
-  if (document.forms["formulario"]["paciente"].value.length != 11) {
+  if (cpf.length != 11) {
     houveErro = true;
     qtdErros++;
     erros = erros + qtdErros + "- CPF deve ter 11 digitos <br/>";
   } else {
-    let str_cpf = document.forms["formulario"]["paciente"].value;
+    let str_cpf = cpf;
     let digito1 = 11;
     let digito2 = 11;
     let soma10 = 0;
@@ -143,5 +144,13 @@ function valida() {
     document.getElementById("erros").innerHTML = erros;
     return false;
   }
+  console.log(erros);
   return true;
+}
+
+function deleta() {
+  document.getElementById("popUpBack").style.display = "flex";
+}
+function fechar() {
+  document.getElementById("popUpBack").style.display = "none";
 }
