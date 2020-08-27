@@ -26,7 +26,7 @@ if (
     ':ds' => $_POST['data_saida'],
     ':de' => $_POST['descricao'],
     ':dia' => $_POST['diagnostico'],
-    ':cpf' => $_POST['cpf_paciente']
+    ':cpf' => preg_replace('/\D/','',$_POST['cpf_paciente'])
   ));
   header('Location: front.php');
 }
