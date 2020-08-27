@@ -68,7 +68,7 @@ $id_atendimento = htmlentities($row['id_atendimento']);
       <label for="diagnostico">Diagnostico:</label>
       <input type="text" id="diagnostico" class="inputs" name="diagnostico" value="<?= htmlentities($diagnostico) ?>" /><br /><br />
       <label for="cpf">CPF do Paciente:</label>
-      <input type="text" id="paciente" class="inputs" name="cpf_paciente" onkeyup="maskCpf()" placeholder="111.111.111-11" maxlength="14" required value="<?= htmlentities($cpf) ?>" /><br /><br />
+      <input type="text" id="paciente" class="inputs" name="cpf_paciente" placeholder="111.111.111-11" maxlength="14" required value="<?= htmlentities($cpf) ?>" /><br /><br />
       <input type="submit" id="enviar" class="botaoElipsado" value="Salvar" />
       <a href="front.php"><input type="button" class="botaoElipsado" value="Voltar" /></a>
       <div id="erros"></div>

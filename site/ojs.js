@@ -1,5 +1,6 @@
 function ouvido() {
   try {
+	maskCpf();
     document.getElementById("paciente").addEventListener("input", maskCpf);
   } catch {
     console.log("Não há formulario aqui");
