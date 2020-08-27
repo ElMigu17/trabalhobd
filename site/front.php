@@ -93,8 +93,10 @@ if ( isset($_POST['Deleta']) && isset($_POST['id_atendimento']) ) {
     </table>
     <a href="adiciona.php" class="botaoElipsado" id="add">Adicionar Atendimento <span id="omais">+</span></a>
 	<div id="paginacao">
-	<a class="<?php if($pagina <= 1) { echo 'disabled';} ?> botaoElipsado" href="<?php if($pagina > 1) { echo "?p=".($pagina - 1); } ?>" class="botaoElipsado" id="voltar"><</a>
-	<a class="<?php if($pagina >= $total_paginas) { echo 'disabled'; } ?> botaoElipsado" href="<?php if($pagina < $total_paginas) { echo "?p=".($pagina+1); } ?>" class="botaoElipsado" id="proximo">></a>
+		<a id="voltar-tudo" class="botaoElipsado"  href="?p=1"><<</a>
+		<a class="<?php if($pagina <= 1) { echo 'disabled';} ?> botaoElipsado" href="<?php if($pagina > 1) { echo "?p=".($pagina - 1); } ?>" class="botaoElipsado" id="voltar"><</a>
+		<a class="<?php if($pagina >= $total_paginas) { echo 'disabled'; } ?> botaoElipsado" href="<?php if($pagina < $total_paginas) { echo "?p=".($pagina+1); } ?>" class="botaoElipsado" id="proximo">></a>
+		<a id="ir-final" class="botaoElipsado" href="<?php echo '?p='.($total_paginas); ?>">>></a>
 	</div>
   </div>
   <div>
