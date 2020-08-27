@@ -6,10 +6,11 @@ if (
   isset($_POST['tipo_entrada']) && isset($_POST['data_internacao']) && isset($_POST['data_saida'])
   && isset($_POST['descricao']) && isset($_POST['diagnostico']) && isset($_POST['cpf_paciente'])
 ) {
-  $stmt = $pdo->prepare('INSERT INTO atendimento (tipo_entrada, data_internacao, data_saida, descricao, diagnostico, cpf_paciente)
+  $stmt = $pdo->prepare('INSERT INTO Atendimento (tipo_entrada, data_internacao, data_saida, descricao, diagnostico, cpf_paciente)
       VALUES (:te, :di, :ds, :de, :dia, :cpf)');
+print_r($_POST);
   $stmt->execute(array(
-    ':cpf' => $_POST['cpf_paciente'],
+    ':cpf' => preg_replace('/\D/','',$_POST['cpf_paciente']),
     ':te' => $_POST['tipo_entrada'],
     ':di' => $_POST['data_internacao'],
     ':ds' => $_POST['data_saida'],

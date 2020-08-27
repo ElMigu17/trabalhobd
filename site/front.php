@@ -1,9 +1,9 @@
 <?php
 require_once "pdo.php";
-$stmt = $pdo->query("SELECT * FROM atendimento");
+$stmt = $pdo->query("SELECT * FROM Atendimento");
 
 if ( isset($_POST['Deleta']) && isset($_POST['id_atendimento']) ) {
-  $sql = "DELETE FROM atendimento WHERE id_atendimento = :ida";
+  $sql = "DELETE FROM Atendimento WHERE id_atendimento = :ida";
   $stmt = $pdo->prepare($sql);
   $stmt->execute(array(':ida' => $_POST['id_atendimento']));
   header('Location: front.php') ;

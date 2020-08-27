@@ -7,7 +7,7 @@ if (!isset($_REQUEST['id_atendimento'])) {
   return;
 }
 
-$stmt = $pdo->prepare("SELECT * FROM atendimento where id_atendimento = :ida");
+$stmt = $pdo->prepare("SELECT * FROM Atendimento where id_atendimento = :ida");
 $stmt->execute(array(":ida" => $_REQUEST['id_atendimento']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -16,7 +16,7 @@ if (
   isset($_POST['tipo_entrada']) && isset($_POST['data_internacao']) && isset($_POST['data_saida'])
   && isset($_POST['descricao']) && isset($_POST['diagnostico']) && isset($_POST['cpf_paciente'])
 ) {
-  $stmt = $pdo->prepare('UPDATE atendimento SET tipo_entrada = :te, tipo_entrada = :te, data_internacao = :di, data_saida = :ds, descricao = :de, diagnostico = :de,
+  $stmt = $pdo->prepare('UPDATE Atendimento SET tipo_entrada = :te, tipo_entrada = :te, data_internacao = :di, data_saida = :ds, descricao = :de, diagnostico = :de,
   cpf_paciente = :cpf
       WHERE id_atendimento = :ida');
   $stmt->execute(array(
