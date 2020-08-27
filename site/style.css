@@ -28,7 +28,7 @@ body {
 #tabela {
   padding: 0;
   border-collapse: collapse;
-  margin-bottom: 10vh;
+  margin-bottom: 2vh;
   max-width: 100%;
   border: 1px solid #bbb;
   background-color: #f3f3f3;
@@ -116,7 +116,7 @@ body {
   display: flex;
   text-align: center;
   text-decoration: none;
-  margin-bottom: 20vh;
+  margin-bottom: 3vh;
 }
 
 #omais {
@@ -207,4 +207,8 @@ body {
 {
 	cursor: not-allowed;
 	opacity: 0.5;
+}
+#paginacao
+{
+	margin-bottom: 3vh;
 }
