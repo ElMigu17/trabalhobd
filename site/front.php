@@ -1,6 +1,26 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once "pdo.php";
-$stmt = $pdo->query("SELECT * FROM Atendimento");
+if(isset($_GET['p']))
+{
+	$pagina = $_GET['p'];
+}
+else
+{
+	$pagina = 1;
+}
+$registros_por_pagina = 10;
+$offset = ($pagina-1) * $registros_por_pagina;
+
+$stmt = $pdo->query("SELECT COUNT(*) FROM Atendimento");
+$result = $stmt->fetchAll();
+$total_registros = $result[0][0];
+$total_paginas = ceil($total_registros / $registros_por_pagina);
+
+$stmt = $pdo->query("SELECT * FROM Atendimento LIMIT $offset, $registros_por_pagina");
 
 if ( isset($_POST['Deleta']) && isset($_POST['id_atendimento']) ) {
   $sql = "DELETE FROM Atendimento WHERE id_atendimento = :ida";
@@ -72,6 +92,10 @@ if ( isset($_POST['Deleta']) && isset($_POST['id_atendimento']) ) {
       ?>
     </table>
     <a href="adiciona.php" class="botaoElipsado" id="add">Adicionar Atendimento <span id="omais">+</span></a>
+	<div id="paginacao">
+	<a class="<?php if($pagina <= 1) { echo 'disabled';} ?> botaoElipsado" href="<?php if($pagina > 1) { echo "?p=".($pagina - 1); } ?>" class="botaoElipsado" id="voltar"><</a>
+	<a class="<?php if($pagina >= $total_paginas) { echo 'disabled'; } ?> botaoElipsado" href="<?php if($pagina < $total_paginas) { echo "?p=".($pagina+1); } ?>" class="botaoElipsado" id="proximo">></a>
+	</div>
   </div>
   <div>
     <footer id="rodape">

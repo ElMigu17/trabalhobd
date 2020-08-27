@@ -203,3 +203,8 @@ body {
   padding: 5px 20px;
   cursor: pointer;
 }
+.disabled
+{
+	cursor: not-allowed;
+	opacity: 0.5;
+}
