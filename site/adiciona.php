@@ -17,7 +17,7 @@ print_r($_POST);
     ':de' => $_POST['descricao'],
     ':dia' => $_POST['diagnostico']
   ));
-  header('Location: index.php');
+  header('Location: front.php');
 }
 
 ?>
